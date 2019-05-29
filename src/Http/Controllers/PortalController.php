@@ -3,7 +3,7 @@
 namespace RobertBoes\LaravelPortal\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
-use Robertboes\LaravelPortal\Exceptions\PortalActionNotDefined;
+use RobertBoes\LaravelPortal\Exceptions\PortalActionNotDefined;
 
 class PortalController extends BaseController
 {

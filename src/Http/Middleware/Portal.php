@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Robertboes\LaravelPortal\Http\Middleware;
+namespace RobertBoes\LaravelPortal\Http\Middleware;
 
 
 use Closure;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
-use Robertboes\LaravelPortal\Exceptions\InvalidPortalConfig;
+use RobertBoes\LaravelPortal\Exceptions\InvalidPortalConfig;
 
 class Portal
 {
@@ -21,7 +21,7 @@ class Portal
      * @param \Closure $next
      * @param null $routeName
      * @return mixed
-     * @throws \Robertboes\LaravelPortal\Exceptions\InvalidPortalConfig
+     * @throws \RobertBoes\LaravelPortal\Exceptions\InvalidPortalConfig
      */
     public function handle($request, Closure $next, $routeName = null)
     {
@@ -34,7 +34,7 @@ class Portal
         $portalAction = $portalConfig->get('guest');
 
         if (Auth::guard($portalConfig->get('guard'))->check()) {
-            $portalAction = $portalConfig->get('authenticated');
+            $portalAction = $portalConfig->get('auth');
         }
 
         if ($portalAction) {
@@ -46,7 +46,7 @@ class Portal
 
     protected function resolvePortalConfig()
     {
-        if ($portalConfig = Arr::get($this->routes, $this->routeName)) {
+        if ($portalConfig = Arr::get(config('laravel-portal.route_actions', []), $this->routeName)) {
             return collect($portalConfig);
         }
 

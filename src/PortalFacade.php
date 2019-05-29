@@ -5,7 +5,7 @@ namespace RobertBoes\LaravelPortal;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Robertboes\LaravelPortal\Portal
+ * @see \RobertBoes\LaravelPortal\Portal
  */
 class PortalFacade extends Facade
 {

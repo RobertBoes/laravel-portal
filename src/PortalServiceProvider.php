@@ -14,8 +14,11 @@ class PortalServiceProvider extends ServiceProvider
     public function boot()
     {
         Route::macro('portal', function (string $uri, string $routeName) {
-            Route::get($uri, [PortalController::class, 'fallback'])
-                ->middleware('portal:'.$routeName);
+            Route::group(['middleware' => \RobertBoes\LaravelPortal\Http\Middleware\Portal::class.':'.$routeName], function () use ($uri) {
+                Route::get($uri, [PortalController::class, 'fallback']);
+            });
+//            Route::get($uri, [PortalController::class, 'fallback'])
+//                ->middleware('portal:'.$routeName);
         });
 
         if ($this->app->runningInConsole()) {
