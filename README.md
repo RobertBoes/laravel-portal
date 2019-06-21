@@ -1,4 +1,6 @@
-# Laravel Portal
+<h1 align="center">Laravel Portal</h1>
+
+![Portal Header](https://boes.io/laravel-portal/portal-header-4x.png)
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/robertboes/laravel-portal.svg?style=flat-square)](https://packagist.org/packages/robertboes/laravel-portal)
 [![Build Status](https://img.shields.io/travis/robertboes/laravel-portal/master.svg?style=flat-square)](https://travis-ci.org/robertboes/laravel-portal)
